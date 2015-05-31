@@ -1,0 +1,242 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Diana's Favourite Movies</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        * {
+        font-family: 'Oswald', sans-serif;
+        }
+        body {
+            padding-top: 80px;
+            background: #f0f0f0 url("prettyteapic.jpg") center top;
+        }
+
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .text {
+            text-align: center;
+            font-weight: 300;
+            padding: 10px;
+            margin: 5px 25%;
+        }
+        .text:hover {
+            background-color: #FDEADF;
+            cursor: pointer;
+        }
+        .movie-tile {
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #FDEADF;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+
+        .light {
+            font-weight: 300;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <!--mobile toggle button :) -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand light" href="#">
+                <img alt="cute tomato" title="image from Adventure-Gal's DeviantArt" src="tomato.png" style="display:inline-block; height:30px; padding-bottom: 5px;"/> DIANA'S FAVOURITE MOVIES
+            </a>
+
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right light">
+                <li><a href="https://github.com/parisandmilo">Back to my Github page  &#9786;</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+    <p class="text">SCROLL OVER PLEASE! <br/> Hi, this is my page of favourite movies &#9786; <br/> The cute tomato is from <a href="http://fav.me/d66iqmi" target="_blank">here</a>, and if you scroll-over the movie images, you'll see my favourite parts from them! Yay!</p>
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vak9ZLfhGnQ" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/a/af/Batman_Begins_Poster.jpg" title="the training bit" width="220" height="342">
+    <h2>Batman Begins</h2>
+    <p class="light"><em>Christian Bale AND Liam Neeson???</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Christian Bale, Liam Neeson, Michael Caine</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="yQ5U8suTUw0" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" title="Christian Bale is awesome as Batman, and Heath Ledger is brilliant" width="220" height="342">
+    <h2>The Dark Knight</h2>
+    <p class="light"><em>Filmed in bits at UCL, i love Christopher Nolan's direction.</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Christian Bale, Michael Caine</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="7gFwvozMHR4" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/83/Dark_knight_rises_poster.jpg" title="when Marion reveals everything" width="220" height="342">
+    <h2>The Dark Knight Rises</h2>
+    <p class="light"><em>Batman comes back!</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Christian Bale, JGL, Tom Hardy, Marion Cotillard, Anne Hathaway</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="9qmiH4ROTtA" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/c/ca/Love_and_Other_Disasters.jpg" title="when she thinks he's gay" width="220" height="342">
+    <h2>Love and Other Disasters</h2>
+    <p class="light"><em>a romantic comedy worth watching</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Brittany Murphy, Catherine Tate, Matthew Rhys</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="kl8F-8tR8to" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/8b/Kingsman_The_Secret_Service_poster.jpg" title="(except when he was in BBC's Pride &amp; Prejudice" width="220" height="342">
+    <h2>The Kingsman</h2>
+    <p class="light"><em>Colin Firth has never looked this sexy.</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Colin Firth, obvs, the cool dude who's really famous, the guy who's in Burlesque and Alfred.</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="eUdM9vrCbow" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/8b/Django_Unchained_Poster.jpg" title="when i realise Leonardo DiCaprio isn't that annoying after all" width="220" height="342">
+    <h2>Django</h2>
+    <p class="light"><em>Quentin Tarantino's Finest</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Jamie Foxx, Leo DiCaprio whom i find annoying but is actually decent in this movie</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="eOrNdBpGMv8" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg" title="TOM HIDDLESTON" width="220" height="342">
+    <h2>The Avengers</h2>
+    <p class="light"><em>A really good superhero film with some of my faves.</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Tom Hiddleston, RDJ, Cristina of Vicky Cristina Barca</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="wCbDUREBwUg" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/e/ed/Taken_film_poster.jpg" title="liam neeson" width="220" height="342">
+    <h2>Taken</h2>
+    <p class="light"><em>Liam Neeson does cool shit and it's really cool</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Liam Neeson, hot wife that dies in Taken 3</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tR8H6hLhQBw" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/80/FermatsRoom.png" title="when the crazy guy reveals himself" width="220" height="342">
+    <h2>La Habitaci&oacute;n de Fermat</h2>
+    <p class="light"><em>Maths people in a closing room, thriller</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Not that I know of</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="jOLqNOfzus4" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/1/17/Limitless_Poster.jpg" title="when his girlfriend tries the drugs but chooses not to keep using them" width="220" height="342">
+    <h2>Limitless</h2>
+    <p class="light"><em>A new drug that makes you feel limitless comes on the market</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Bradley Cooper</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="AeNXmKvuzKI" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/e/e7/Love_Me_If_You_Dare_movie.jpg" title="when they open the music box and are in the 'elderly home' together" width="220" height="342">
+    <h2>Jeux D'Enfants</h2>
+    <p class="light"><em>A twisted French love story about playing games in relationships</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Marion Cotillard, Guillame Canet</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="z93AADd2Dpo" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/e/e8/A_team_poster_10.jpg" title="the end bit of course" width="220" height="342">
+    <h2>The A Team</h2>
+    <p class="light"><em>I love it when a plan comes together.</em></p>
+    <p><strong>Notable Actors:</strong></p>
+    <p class="light">Liam Neeson, Bradley Cooper, cool crazy guy, cool anti-violence guy</p>
+</div>
+
+    </div>
+  </body>
+</html>
