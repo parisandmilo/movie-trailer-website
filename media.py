@@ -3,7 +3,7 @@ __author__ = 'dklhy'
 import webbrowser
 
 class Movie():
-    """Store movie info"""
+    """Function allows storage of movie info"""
 
     VALID_RATINGS = ["G","PG", "PG-13","NC-16","M-18","R","Unrated"]
 
