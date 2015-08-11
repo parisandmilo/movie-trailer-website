@@ -1,11 +1,10 @@
-__author__ = 'dklhy'
-
 import webbrowser
+
 
 class Movie():
     """Function allows storage of movie info"""
 
-    VALID_RATINGS = ["G","PG", "PG-13","NC-16","M-18","R","Unrated"]
+    VALID_RATINGS = ["G", "PG", "PG-13", "NC-16", "M-18", "R", "Unrated"]
 
     def __init__(self, movie_title, movie_storyline, favourite_part, notable_actors, poster_url, trailer_url):
         self.title = movie_title

@@ -8,7 +8,7 @@ Python writes server-side code to store a list of favorite movies, including box
 This data is then generated as a web page allowing visitors to review their movies and watch the trailers.
 
 ## Running the Program
-Run `fresh_tomatoes.py` to generate the HTML page
+Run `entertainment_centre.py` to generate the HTML page
 
 ## Updating
 Update content in the `entertainment_centre.py` file, this function is constructed in `media.py`
